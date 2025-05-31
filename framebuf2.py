@@ -31,13 +31,13 @@ GS8 = framebuf.GS8
 
 
 class FrameBuffer(framebuf.FrameBuffer):
-    def _reverse(self, s: string) -> string:
+    def _reverse(self, s: str) -> str:
         t = ""
         for i in range(0, len(s)):
             t += s[len(s) - 1 - i]
         return t
 
-    def large_text(self, s, x, y, m, c: int = 1, r: int = 0, t=None):
+    def large_text(self, s:str , x:int, y:int, m:int , c: int = 1, r: int = 0, t=None):
         """
         large text drawing function uses the standard framebuffer font (8x8 pixel characters)
         writes text, s,
@@ -76,7 +76,7 @@ class FrameBuffer(framebuf.FrameBuffer):
             x += dx
             y += dy
 
-    def circle(self, x0, y0, radius, c, f: bool = None):
+    def circle(self, x0, y0, radius, c, f: bool = False):
         """
         Circle drawing function.  Will draw a single pixel wide circle with
         center at x0, y0 and the specified radius
@@ -129,7 +129,7 @@ class FrameBuffer(framebuf.FrameBuffer):
                 self.vline(x0 - x, y0 - y, 2 * y + 1, c)
                 self.vline(x0 - y, y0 - x, 2 * x + 1, c)
 
-    def triangle(self, x0, y0, x1, y1, x2, y2, c, f: bool = None):
+    def triangle(self, x0:int, y0:int, x1:int, y1:int, x2:int, y2:int, c, f: bool = False):
         """
         Triangle drawing function.  Will draw a single pixel wide triangle
         around the points (x0, y0), (x1, y1), and (x2, y2)
